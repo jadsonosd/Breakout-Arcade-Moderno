@@ -4,16 +4,23 @@
 
 .data ;Indica o in?cio do segmento de datas (dados)
     
-msg      db " ______   _______  _______  _______  _        _______          _________",10, 13,  "$"
-msg2     db "(  ___ \ (  ____ )(  ____ \(  ___  )| \    /\(  ___  )|\     /|\__   __/",11, 14, "$"
-msg3     db "| (   ) )| (    )|| (    \/| (   ) ||  \  / /| (   ) || )   ( |   ) (   ",12, 15, "$"
-msg4     db "| (__/ / | (____)|| (__    | (___) ||  (_/ / | |   | || |   | |   | |   ",13, 16, "$"
-msg5     db "|  __ (  |     __)|  __)   |  ___  ||   _ (  | |   | || |   | |   | |   ",14, 17, "$"
-msg6     db "| (  \ \ | (\ (   | (      | (   ) ||  ( \ \ | |   | || |   | |   | |   ",15, 18, "$"
-msg7     db "| )___) )| ) \ \__| (____/\| )   ( ||  /  \ \| (___) || (___) |   | |   ",16, 19, "$"
-msg8     db "|/ \___/ |/   \__/(_______/|/     \||_/    \/(_______)(_______)   )_(   ",17, 20, "$"
+    CR equ 13
+    NL equ 10
     
-    ;trecho de código de vídeo español
+    
+    msg      db "       ______   _______  _______  _______  _        _______          _________",CR, NL
+             db "      (  ___ \ (  ____ )(  ____ \(  ___  )| \    /\(  ___  )|\     /|\__   __/",CR, NL
+             db "      | (   ) )| (    )|| (    \/| (   ) ||  \  / /| (   ) || )   ( |   ) (   ",CR, NL
+             db "      | (__/ / | (____)|| (__    | (___) ||  (_/ / | |   | || |   | |   | |   ",CR, NL
+             db "      |  __ (  |     __)|  __)   |  ___  ||   _ (  | |   | || |   | |   | |   ",CR, NL
+             db "      | (  \ \ | (\ (   | (      | (   ) ||  ( \ \ | |   | || |   | |   | |   ",CR, NL
+             db "      | )___) )| ) \ \__| (____/\| )   ( ||  /  \ \| (___) || (___) |   | |   ",CR, NL
+             db "      |/ \___/ |/   \__/(_______/|/     \||_/    \/(_______)(_______)   )_(   ",CR, NL
+
+ 
+   nomes     db "Jadson Charles Pawlowski", CR, NL
+             db "Felipe de Rossi", CR, NL, "$"   
+    ;trecho de c?digo de v?deo espa?ol
 .code ;In?cio do segmento de c?digo
     
 main proc  
@@ -22,20 +29,35 @@ main proc
     mov dx, ax        ;Mover o resultado de ax em dx.(sauda??o mensagem)
 ;    mov cx, bx
     
-    mov ah,09h         ;Com data fun??o imprimimos a cadeia
+    mov dx, offset msg
+ ;mov dx, offset nomes    
+    mov ah, 09h         ;Com data fun??o imprimimos a cadeia
+
+ ;   mov dx, offset nomes
+ ;   mov dx, ax
+ ;   mov ah, 09h
+    
+;display_menu proc
+;  mov  dx, offset menu
+;  mov  ah, 9
+;  int  21h
+;  ret
+
+
+    ;mov dx, dx offset msg
 ;    mov 
     
     ;lea dx,mensagem            ;mostrar o lear mensagem
     
-    lea dx, msg             ;trecho mentebinario.com.br
-    lea dx, msg2 
-    lea dx, msg3 
-    lea dx, msg4 
-    lea dx, msg5 
-    lea dx, msg6 
-    lea dx, msg7 
-    lea dx, msg8
-    
+    ;lea dx, msg             ;trecho mentebinario.com.br
+    ;lea dx, msg2 
+    ;lea dx, msg3 
+    ;lea dx, msg4 
+    ;lea dx, msg5 
+    ;lea dx, msg6 
+    ;lea dx, msg7 
+    ;lea dx, msg8
+     
     ;mov ah, 09h
     ;int 21h
 
